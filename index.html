@@ -12,6 +12,78 @@
 	<link rel="stylesheet" href="https://unpkg.com/tailwindcss/dist/tailwind.min.css">
 	<!--Replace with your tailwind.css once created-->
 
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+	<script>
+		//Add Carousel Slider
+		var cont = 0;
+
+		function loopSlider() {
+			var xx = setInterval(function () {
+				switch (cont) {
+					case 0: {
+						$("#slider-1").fadeOut(400);
+						$("#slider-2").delay(400).fadeIn(400);
+						$("#sButton1").removeClass("bg-purple-800");
+						$("#sButton2").addClass("bg-purple-800");
+						cont = 1;
+
+						break;
+					}
+					case 1: {
+
+						$("#slider-2").fadeOut(400);
+						$("#slider-1").delay(400).fadeIn(400);
+						$("#sButton2").removeClass("bg-purple-800");
+						$("#sButton1").addClass("bg-purple-800");
+
+						cont = 0;
+
+						break;
+					}
+
+
+				}
+			}, 8000);
+
+		}
+
+		function reinitLoop(time) {
+			clearInterval(xx);
+			setTimeout(loopSlider(), time);
+		}
+
+
+
+		function sliderButton1() {
+
+			$("#slider-2").fadeOut(400);
+			$("#slider-1").delay(400).fadeIn(400);
+			$("#sButton2").removeClass("bg-purple-800");
+			$("#sButton1").addClass("bg-purple-800");
+			reinitLoop(4000);
+			cont = 0
+
+		}
+
+		function sliderButton2() {
+			$("#slider-1").fadeOut(400);
+			$("#slider-2").delay(400).fadeIn(400);
+			$("#sButton1").removeClass("bg-purple-800");
+			$("#sButton2").addClass("bg-purple-800");
+			reinitLoop(4000);
+			cont = 1
+
+		}
+
+		$(window).ready(function () {
+			$("#slider-2").hide();
+			$("#sButton1").addClass("bg-purple-800");
+
+			loopSlider();
+
+		});
+
+	</script>
 </head>
 
 <body class="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover"
@@ -19,7 +91,7 @@
 
 
 
-	<div class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
+	<div id="slider-1" class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
 
 		<!--Main Col-->
 		<div id="profile"
@@ -119,8 +191,55 @@
 
 	</div>
 
+	<div id="slider-2" class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
+
+		<!--Main Col-->
+		<div id="profile"
+			class="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0">
+
+
+			<div class="p-4 md:p-12 text-center lg:text-left">
+				<!-- Image for mobile view-->
+				<div class="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
+					style="background-image: url('https://avatars.githubusercontent.com/u/9696688?v=4')"></div>
+
+				<h1 class="text-3xl font-bold pt-8 lg:pt-0">Experience</h1>
+				<div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
+				<p class="my-5 text-left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, aliquam
+					aut! Porro deleniti, aliquam ut distinctio sapiente placeat velit? Atque modi hic nostrum officia
+					dolor minima asperiores animi maiores. Nesciunt? </p>
+
+				<!-- Use https://simpleicons.org/ to find the svg for your preferred product -->
+
+			</div>
+
+		</div>
+
+		<!--Img Col-->
+		<div class="w-full lg:w-2/5">
+			<!-- Big profile image for side bar (desktop) -->
+			<img src="https://scontent.fcgk13-1.fna.fbcdn.net/v/t1.6435-9/93233197_2916618758373209_1122239460835065856_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=8bfeb9&_nc_eui2=AeH5sydFZ-XdFW474ztr0-kaNlVpbJdLc-82VWlsl0tz79JssEIhbHhEYdZcHpzBWkyx3zSSkgcubtfAZI3UR2Gr&_nc_ohc=APcF1JUR4_gAX-8SPK9&tn=oK9crMl9aru-04IO&_nc_ht=scontent.fcgk13-1.fna&oh=9b0c6db8197ae9bf11d9bd9b889912e0&oe=618230E2"
+				class="rounded-none lg:rounded-lg shadow-2xl hidden lg:block">
+			<!-- Image from: http://unsplash.com/photos/MP0IUfwrn0A -->
+
+		</div>
+
+
+		<!-- Pin to top right corner -->
+		<div class="absolute top-0 right-0 h-12 w-18 p-4">
+			<button class="js-change-theme focus:outline-none">🌙</button>
+		</div>
+
+	</div>
+
+	<div class="flex justify-between w-12 mx-auto pb-2">
+		<button id="sButton1" onclick="sliderButton1()" class="bg-purple-400 rounded-full w-4 pb-2 "></button>
+		<button id="sButton2" onclick="sliderButton2() " class="bg-purple-400 rounded-full w-4 p-2"></button>
+	</div>
+
 	<script src="https://unpkg.com/popper.js@1/dist/umd/popper.min.js"></script>
 	<script src="https://unpkg.com/tippy.js@4"></script>
+
 	<script>
 		//Init tooltips
 		tippy('.link', {
