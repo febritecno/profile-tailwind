@@ -301,9 +301,11 @@
 
 				<h1 class="text-3xl font-bold pt-8 lg:pt-0">Experience</h1>
 				<div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
-				<p class="my-5 text-left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, aliquam
-					aut! Porro deleniti, aliquam ut distinctio sapiente placeat velit? Atque modi hic nostrum officia
-					dolor minima asperiores animi maiores. Nesciunt? </p>
+				<p class="my-5 text-left">Experienced Frontend & Backend Developer with a demonstrated history of
+					working in the internet industry. Skilled in Programming and Design Graphics like Photoshop,
+					Coreldraw, Figma, SQL, PHP, Visual Basic, Construct 2, Javascript/Node.js, Arduino, Flutter,
+					Microsoft Office. Strong engineering professional with a Bachelor's of Computer Applications focused
+					in Computer Software Engineering from Universitas KH. A. Wahab Hasbullah. </p>
 				<div class="shadow-md">
 					<div class="tab w-full overflow-hidden border-t">
 						<input class="absolute opacity-0 " id="tab-multi-one" type="checkbox" name="tabs">
@@ -317,14 +319,14 @@
 						</div>
 					</div>
 					<div class="tab w-full overflow-hidden border-t">
-						<input class="absolute opacity-0 " id="tab-multi-one" type="checkbox" name="tabs">
-						<label class="block p-5 leading-normal cursor-pointer" for="tab-multi-one">Pengalaman
+						<input class="absolute opacity-0" id="tab-multi-two" type="checkbox" name="tabs">
+						<label class="block p-5 leading-normal cursor-pointer" for="tab-multi-two">Pengalaman
 							Kedua</label>
 						<div
 							class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
-							<p class="p-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident ipsa ea
-								labore rem, debitis unde cupiditate enim modi doloremque quam eligendi nobis autem in
-								quasi eos, voluptatum nostrum aspernatur aliquam.</p>
+							<p class="p-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur,
+								architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo
+								obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
 						</div>
 					</div>
 				</div>
@@ -389,6 +391,21 @@
 
 			}
 		});
+
+		/* Optional Javascript to close the radio button version by clicking it again */
+		var myRadios = document.getElementsByName('tabs2');
+		var setCheck;
+		var x = 0;
+		for (x = 0; x < myRadios.length; x++) {
+			myRadios[x].onclick = function () {
+				if (setCheck != this) {
+					setCheck = this;
+				} else {
+					this.checked = false;
+					setCheck = null;
+				}
+			};
+		}
 
 	</script>
 
